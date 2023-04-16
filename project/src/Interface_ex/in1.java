@@ -9,7 +9,6 @@ public class in1 {
 		udgame1 ud = new udgame1();
 		ud.user();
 		
-
 	}
 }
 class udgame1 implements udgame{
@@ -17,8 +16,10 @@ class udgame1 implements udgame{
 	int count = 0;
 	@Override
 	public void user() {
-		sc = new Scanner(System.in);
 		while(true) {
+			sc = new Scanner(System.in);
+			try {
+				
 			System.out.println("숫자를 입력해주세요");
 			int user = sc.nextInt();
 			
@@ -26,21 +27,23 @@ class udgame1 implements udgame{
 				System.out.println("10이하의 숫자만 입력해주세요");
 			}
 			else {
-				count++;
-				if(count >= 4) {
+				String z = result(user,ranNumber);
+				if(count == 4) {
 					System.out.printf("정답을 맞추지 못했습니다.\n정답은: %d",ranNumber);
+					sc.close();
 					break;
 				}
-				String z = result(user,ranNumber);
-				
 				if(z.equals("")) {
 					System.out.println("정답입니다");
 					break;
 				}
 				else {
+					count++;
 					System.out.println(z);
-					continue;
 				}
+			}
+			} catch (Exception e) {
+				System.out.println("숫자만 입력해주세요 다시 입력해주세요");
 			}
 		}
 	}

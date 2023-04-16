@@ -28,15 +28,17 @@ public class Example9 {
 		System.out.printf("다음메뉴를 선택하세요:\n[%s,%s,%s,%s]\n",data[0][0],data[0][1],data[0][2],data[0][3]);
 		String menu = sc.next();
 		int total = 0;
+		int total2 = 0;
 		int w = 0;
 		while(w < ea) {
 			if(menu.equals(data[0][w])){
 				total = money - Integer.parseInt(data[1][w]);
+				total2 =  Integer.parseInt(data[1][w]) - money ;
 			}
 			w++;
 		}
 		if(total < 0) {
-			System.out.println("금액이 부족합니다.");
+			System.out.printf("금액이 %d원 부족합니다" ,total2);
 		}
 		else {
 			System.out.println("최종 남은 금액은" + total + "원 입니다");

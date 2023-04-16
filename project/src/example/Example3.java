@@ -14,12 +14,12 @@ public class Example3 {
 	Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		System.out.println("출금하실 금액은?");
 		Example3 ex = new Example3();
 		ex.abc();
 	}
 
 	public void abc() {
+		System.out.println("출금하실 금액은?");
 		int user = this.sc.nextInt();
 		
 		if (user == this.money) {
@@ -38,6 +38,20 @@ public class Example3 {
 		}
 		else if(user > this.money){
 			System.out.println("잔액이 부족합니다\n" +money+" 원 출금가능합니다");
+		}
+		else {
+			System.out.printf("%d원 결제 하시겠습니까?", user);
+			int userselect = sc.nextInt();
+			//String일 경우 intern 또는 equals를 사용해야 조건을 확인할수 있습니다.
+
+			if (userselect == 1) {
+				System.out.println("결제가 진행 됩니다");
+			} 
+			else if (userselect == 2) {
+				System.out.println("결제가 취소 되었습니다");
+
+			}
+			this.sc.close();
 		}
 	}
 }
